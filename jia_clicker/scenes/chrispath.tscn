@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvhdypxggnd1"]
+
+[ext_resource type="Script" path="res://src/chrispath.gd" id="1_t3ptn"]
+[ext_resource type="Texture2D" uid="uid://o1xub3fkfyur" path="res://assets/chris_gamer.png" id="2_soequ"]
+
+[sub_resource type="Curve2D" id="Curve2D_m7ltb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 445, 470, -22.6786, 21.4187, 22.6786, -21.4187, 452, 309, 0, 0, 0, 0, 484, 281, -22.6786, 3.77976, 22.6786, -3.77976, 533, 242, -22.6786, -3.77976, 22.6786, 3.77976, 612, 240, 0, 0, 0, 0, 686, 270, -11.3393, -11.3393, 11.3393, 11.3393, 747, 301, 0, 0, 0, 0, 767, 380, 21.4187, -34.0179, -21.4187, 34.0179, 763, 587, 0, 0, 0, 0, 670, 610, 0, 0, 0, 0, 559, 605, 35.2778, 11.3393, -35.2778, -11.3393, 477, 600, 0, 0, 0, 0, 448, 541, 0, 0, 0, 0, 445, 470)
+}
+point_count = 14
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_t3ptn")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-104.73, -18.352)
+scale = Vector2(1.17714, 1.03472)
+curve = SubResource("Curve2D_m7ltb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(445, 470)
+rotation = -1.52735
+
+[node name="ChrisGamer" type="Sprite2D" parent="Path2D/PathFollow2D"]
+rotation = 1.5708
+scale = Vector2(0.11, 0.109)
+texture = ExtResource("2_soequ")

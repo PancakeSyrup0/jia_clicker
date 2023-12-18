@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cscpuucd1ji6v"]
+
+[ext_resource type="Script" path="res://testnode.gd" id="1_xvph3"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_xvph3")
+buyAmt = 20

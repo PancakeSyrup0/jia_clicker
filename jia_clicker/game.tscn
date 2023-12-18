@@ -1,0 +1,308 @@
+[gd_scene load_steps=13 format=3 uid="uid://c15y7rihwufj"]
+
+[ext_resource type="Script" path="res://src/game.gd" id="1_hsggx"]
+[ext_resource type="Texture2D" uid="uid://blowkt3ccskhq" path="res://assets/Optimized-space_bg.jpg" id="2_vs400"]
+[ext_resource type="Texture2D" uid="uid://siyywi8t4ms2" path="res://assets/jia.png" id="3_fgp6t"]
+[ext_resource type="Texture2D" uid="uid://doywqgsrnjt3g" path="res://assets/jia_particle.png" id="3_ljyuv"]
+[ext_resource type="Texture2D" uid="uid://b5b0dyvdin8jd" path="res://assets/jia_press-removebg-preview.png" id="4_p3apd"]
+[ext_resource type="Texture2D" uid="uid://o1xub3fkfyur" path="res://assets/chris_gamer.png" id="5_8gjv6"]
+[ext_resource type="Texture2D" uid="uid://cslllnvcuuwmr" path="res://assets/alluarjr-removebg-preview.png" id="6_mxm3i"]
+[ext_resource type="Texture2D" uid="uid://dtwll4xhmw6lc" path="res://assets/DD_fr.jpg" id="7_dm5ll"]
+[ext_resource type="Texture2D" uid="uid://d804bxfyh06n" path="res://assets/nasi_goreng.jpg" id="8_4cc3r"]
+[ext_resource type="Texture2D" uid="uid://hop3nk1jqxjw" path="res://assets/activa.jpg" id="9_bwud4"]
+[ext_resource type="AudioStream" uid="uid://b8qfm8cwo14xc" path="res://assets/jia_click.ogg" id="11_c88dg"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_siuau"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 1, 1)
+gravity = Vector3(0, 98, 0)
+color = Color(1, 1, 1, 0.388235)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hsggx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1284.0
+offset_bottom = 800.0
+texture = ExtResource("2_vs400")
+
+[node name="JIA_PARTICLES" type="GPUParticles2D" parent="."]
+position = Vector2(640, -65)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_siuau")
+texture = ExtResource("3_ljyuv")
+lifetime = 4.0
+
+[node name="JIA_PARTICLES_CLICK" type="GPUParticles2D" parent="."]
+position = Vector2(640, -65)
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_siuau")
+texture = ExtResource("3_ljyuv")
+lifetime = 4.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 201.0
+offset_right = 900.0
+offset_bottom = 777.0
+scale = Vector2(0.675, 0.675)
+texture_normal = ExtResource("3_fgp6t")
+texture_pressed = ExtResource("4_p3apd")
+
+[node name="on_screen_upgrades" type="Node" parent="."]
+
+[node name="clicked_counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 15.0
+offset_right = 634.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 35
+text = "COUNTER"
+
+[node name="JPS_meter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 72.0
+offset_right = 59.0
+offset_bottom = 95.0
+text = "JPS (JIAS PER SECOND): "
+
+[node name="UPGRADES" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 26.0
+offset_right = 1257.0
+offset_bottom = 637.0
+
+[node name="CHRIS_UPGRADE" type="Control" parent="UPGRADES"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UPGRADES/CHRIS_UPGRADE"]
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 130.0
+
+[node name="HEADER" type="Label" parent="UPGRADES/CHRIS_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "UPGRADES"
+
+[node name="chris_UP_Label" type="Label" parent="UPGRADES/CHRIS_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "chris jr."
+
+[node name="chris_UP_button" type="Button" parent="UPGRADES/CHRIS_UPGRADE/VBoxContainer"]
+layout_mode = 2
+text = "30 JIAS"
+expand_icon = true
+
+[node name="chris_sprite" type="TextureRect" parent="UPGRADES/CHRIS_UPGRADE"]
+layout_mode = 2
+offset_left = 179.0
+offset_top = 61.0
+offset_right = 661.0
+offset_bottom = 579.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_8gjv6")
+
+[node name="chris_UP_counter" type="Label" parent="UPGRADES/CHRIS_UPGRADE"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 69.0
+offset_right = 260.0
+offset_bottom = 92.0
+text = "0"
+
+[node name="ALLUARJUN_UPGRADE" type="Control" parent="UPGRADES"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UPGRADES/ALLUARJUN_UPGRADE"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 132.0
+offset_right = 235.0
+offset_bottom = 262.0
+
+[node name="allu_UP_Label" type="Label" parent="UPGRADES/ALLUARJUN_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "allu arjun"
+
+[node name="allu_UP_button" type="Button" parent="UPGRADES/ALLUARJUN_UPGRADE/VBoxContainer"]
+layout_mode = 2
+text = "100 JIAS"
+expand_icon = true
+
+[node name="allu_sprite" type="TextureRect" parent="UPGRADES/ALLUARJUN_UPGRADE"]
+layout_mode = 2
+offset_left = 179.0
+offset_top = 125.685
+offset_right = 661.0
+offset_bottom = 643.685
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_mxm3i")
+
+[node name="allu_UP_counter" type="Label" parent="UPGRADES/ALLUARJUN_UPGRADE"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 135.48
+offset_right = 260.0
+offset_bottom = 158.48
+text = "0"
+
+[node name="FATHERDD_UPGRADE" type="Control" parent="UPGRADES"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UPGRADES/FATHERDD_UPGRADE"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 197.585
+offset_right = 235.0
+offset_bottom = 327.586
+
+[node name="DD_UP_Label" type="Label" parent="UPGRADES/FATHERDD_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "daddy denzil"
+
+[node name="DD_UP_button" type="Button" parent="UPGRADES/FATHERDD_UPGRADE/VBoxContainer"]
+layout_mode = 2
+text = "1000 JIAS"
+expand_icon = true
+
+[node name="DD_sprite" type="TextureRect" parent="UPGRADES/FATHERDD_UPGRADE"]
+layout_mode = 2
+offset_left = 160.0
+offset_top = 190.0
+offset_right = 892.0
+offset_bottom = 804.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_dm5ll")
+
+[node name="DD_UP_counter" type="Label" parent="UPGRADES/FATHERDD_UPGRADE"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 207.745
+offset_right = 260.0
+offset_bottom = 230.745
+text = "0"
+
+[node name="NASI_UPGRADE" type="Control" parent="UPGRADES"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UPGRADES/NASI_UPGRADE"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 275.0
+offset_right = 235.0
+offset_bottom = 405.001
+
+[node name="nasi_UP_Label" type="Label" parent="UPGRADES/NASI_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "nasi goreng"
+
+[node name="nasi_UP_button" type="Button" parent="UPGRADES/NASI_UPGRADE/VBoxContainer"]
+layout_mode = 2
+text = "13000 JIAS (130 inr)"
+expand_icon = true
+
+[node name="nasi_sprite" type="TextureRect" parent="UPGRADES/NASI_UPGRADE"]
+layout_mode = 2
+offset_left = 160.0
+offset_top = 260.0
+offset_right = 892.0
+offset_bottom = 874.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_4cc3r")
+
+[node name="nasi_UP_counter" type="Label" parent="UPGRADES/NASI_UPGRADE"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 275.0
+offset_right = 260.0
+offset_bottom = 298.0
+text = "0"
+
+[node name="ACTIVA_UPGRADE" type="Control" parent="UPGRADES"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UPGRADES/ACTIVA_UPGRADE"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 350.0
+offset_right = 235.0
+offset_bottom = 480.001
+
+[node name="activa_UP_Label" type="Label" parent="UPGRADES/ACTIVA_UPGRADE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "activa 6G"
+
+[node name="activa_UP_button" type="Button" parent="UPGRADES/ACTIVA_UPGRADE/VBoxContainer"]
+layout_mode = 2
+text = "100000 JIAS"
+expand_icon = true
+
+[node name="activa_sprite" type="TextureRect" parent="UPGRADES/ACTIVA_UPGRADE"]
+layout_mode = 2
+offset_left = 160.0
+offset_top = 335.0
+offset_right = 892.0
+offset_bottom = 949.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("9_bwud4")
+
+[node name="activa_UP_counter" type="Label" parent="UPGRADES/ACTIVA_UPGRADE"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 350.0
+offset_right = 260.0
+offset_bottom = 373.0
+text = "0"
+
+[node name="BUY_AMOUNT" type="TabBar" parent="UPGRADES"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 525.0
+offset_right = 201.0
+offset_bottom = 565.0
+tab_count = 4
+clip_tabs = false
+tab_0/title = "1"
+tab_1/title = "10"
+tab_2/title = "100"
+tab_3/title = "max (wip)"
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_c88dg")
+volume_db = 1.0
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UPGRADES/CHRIS_UPGRADE/VBoxContainer/chris_UP_button" to="." method="_on_chris_up_button_pressed"]
+[connection signal="pressed" from="UPGRADES/ALLUARJUN_UPGRADE/VBoxContainer/allu_UP_button" to="." method="_on_allu_up_button_pressed"]
+[connection signal="pressed" from="UPGRADES/FATHERDD_UPGRADE/VBoxContainer/DD_UP_button" to="." method="_on_dd_up_button_pressed"]
+[connection signal="pressed" from="UPGRADES/NASI_UPGRADE/VBoxContainer/nasi_UP_button" to="." method="_on_nasi_up_button_pressed"]
+[connection signal="pressed" from="UPGRADES/ACTIVA_UPGRADE/VBoxContainer/activa_UP_button" to="." method="_on_activa_up_button_pressed"]
+[connection signal="tab_clicked" from="UPGRADES/BUY_AMOUNT" to="." method="_on_buy_amount_tab_clicked"]

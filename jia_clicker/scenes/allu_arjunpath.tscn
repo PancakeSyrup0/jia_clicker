@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b85750vxkii8c"]
+
+[ext_resource type="Script" path="res://src/chrispath.gd" id="1_jfxyv"]
+[ext_resource type="Texture2D" uid="uid://5gl7hxtftunp" path="res://assets/allu_arjun-removebg-preview.png" id="2_0ul6f"]
+
+[sub_resource type="Curve2D" id="Curve2D_ykgaw"]
+_data = {
+"points": PackedVector2Array(128.294, 244.47, -128.294, -244.47, 232.538, 804.422, -22.4514, 102.167, 22.4514, -102.167, 312.393, 436.207, 28.8661, 127.708, -28.8661, -127.708, 431.325, 220.69, -35.2808, 91.2203, 35.2808, -91.2203, 264.82, -27.6867, 0, 0, 0, 0, 579.141, -147.526, -80.1837, -29.1905, 80.1837, 29.1905, 812.758, -104.036, 0, -76.625, 0, 76.625, 954.627, 27.4007, 6.41469, -116.762, -6.41469, 116.762, 1063.37, 290.274, 73.769, -43.7857, -73.769, 43.7857, 967.37, 384.985, -38.4882, -87.5714, 38.4882, 87.5714, 925.744, 567.643, 76.9763, -91.2203, -76.9763, 91.2203, 1140.67, 731.939, 0, 0, 0, 0, 855.234, 771.563, 51.3176, 36.4881, -51.3176, -36.4881, 752.442, 607.268, 64.1469, -21.8929, -64.1469, 21.8929, 556.204, 574.409, 83.391, -7.29762, -83.391, 7.29762, 438.121, 717.442, 0, 0, 0, 0, 232.538, 804.422)
+}
+point_count = 16
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jfxyv")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-104.73, -18.352)
+scale = Vector2(1.17714, 1.03472)
+curve = SubResource("Curve2D_ykgaw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(232.538, 804.422)
+rotation = -2.05407
+
+[node name="ALLUARJUN" type="Sprite2D" parent="Path2D/PathFollow2D"]
+modulate = Color(1, 1, 1, 0.243137)
+rotation = 1.5708
+scale = Vector2(0.11, 0.109)
+texture = ExtResource("2_0ul6f")
